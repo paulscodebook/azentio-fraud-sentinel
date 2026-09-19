@@ -1,0 +1,52 @@
+{
+  "collapse-filter": false,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:Transactions",
+      "color": {
+        "a": 1,
+        "rgb": 14701138
+      }
+    },
+    {
+      "query": "path:Customers",
+      "color": {
+        "a": 1,
+        "rgb": 5418196
+      }
+    },
+    {
+      "query": "path:Accounts",
+      "color": {
+        "a": 1,
+        "rgb": 4437220
+      }
+    },
+    {
+      "query": "path:Risk Signals",
+      "color": {
+        "a": 1,
+        "rgb": 16744448
+      }
+    },
+    {
+      "query": "path:Reports",
+      "color": {
+        "a": 1,
+        "rgb": 9849586
+      }
+    }
+  ],
+  "collapse-forces": false,
+  "centerStrength": 0.518713248970312,
+  "repelStrength": 10,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 1
+}
