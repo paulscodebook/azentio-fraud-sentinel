@@ -1,0 +1,18 @@
+# Python & Environments
+venv_slm/
+.venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+
+# Model checkpoints & cache
+**/checkpoints/
+output/slm_cache.json
+.cache/
+
+# OS & IDE
+.DS_Store
+*.swp
+.idea/
+.vscode/

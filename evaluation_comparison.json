@@ -1,0 +1,54 @@
+{
+  "dataset_notice": "Evaluated against heuristic WEAK LABELS on held-out test split (seed=42).",
+  "test_samples_evaluated": 5,
+  "base_model": {
+    "model_name": "Base Qwen2.5-1.5B-Instruct",
+    "total_samples": 5,
+    "valid_json_count": 5,
+    "json_validity_rate": 1.0,
+    "tp": 4,
+    "fp": 1,
+    "tn": 0,
+    "fn": 0,
+    "confusion_matrix": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        4
+      ]
+    ],
+    "accuracy": 0.8,
+    "precision": 0.8,
+    "recall": 1.0,
+    "f1": 0.8889,
+    "total_eval_time_sec": 140.87
+  },
+  "lora_model": {
+    "model_name": "Fine-Tuned Qwen2.5-1.5B + LoRA",
+    "total_samples": 5,
+    "valid_json_count": 5,
+    "json_validity_rate": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "tn": 1,
+    "fn": 3,
+    "confusion_matrix": [
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "accuracy": 0.4,
+    "precision": 1.0,
+    "recall": 0.25,
+    "f1": 0.4,
+    "total_eval_time_sec": 99.85
+  }
+}
