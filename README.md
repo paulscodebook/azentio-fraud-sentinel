@@ -58,6 +58,8 @@ The pipeline exports predictions to `azentio_fraud_results.json`. Every record s
 
 Fraud Sentinel includes an optional Obsidian-compatible Evidence Brain for investigation and explainability.
 
+![Obsidian Evidence Brain Graph](assets/evidence_brain_graph.png)
+
 ```text
 Customer
    |
@@ -98,6 +100,22 @@ python3 generate_evidence_graph.py
 3. Select the `evidence_brain/` folder in the project directory.
 4. Open `Dashboard.md` to begin exploring the investigation views.
 
+### Focused Risk Transaction Case Study: TXN_0000255
+
+Hovering over or selecting a specific node in Obsidian Graph View isolates its immediate 1-hop and 2-hop relational connections.
+
+![Focused Transaction Investigation Graph](assets/transaction_focus_graph.png)
+
+Investigation Breakdown for Transaction TXN_0000255:
+- Target Entity: `TXN_0000255` (Verdict: Fraud, Confidence: 0.70)
+- Nominal Amount: INR 25.00 (Local Kirana Store / Grocery vertical)
+- Linked Account: `[[ACC_000099]]`
+- Linked Customer: `[[CUST_00071]]`
+- Connected Risk Signals:
+  - `[[Unrecognized New Device]]`: Hardware fingerprint absent from the customer profile.
+  - `[[Cross-Border Transaction]]`: Transaction routed from an international IP location.
+- Investigation Rationale: A nominal purchase of INR 25.00 at a local grocery merchant would ordinarily slip through simplistic single-table amount filters. However, the graph view immediately surfaces the underlying risk topology: an unauthenticated overseas device probing active card validity against domestic payment channels (card testing / micro-probing attack).
+
 ---
 
 ## Important Notice on Label Provenance
@@ -121,7 +139,10 @@ Similarly, the ~76% figure reported during pipeline execution represents Heurist
 |-- azentio_fraud_results.json     # Final 1,000 transaction predictions
 |-- generate_evidence_graph.py     # Evidence Brain generator for Obsidian
 |-- evidence_brain/                # Generated Obsidian-compatible investigation vault
-|-- fine_tune_actual.py            # Live PyTorch / Hugging Face PEFT LoRA training
+|-- assets/
+|   |-- evidence_brain_graph.png      # Global Obsidian Graph View network screenshot
+|   `-- transaction_focus_graph.png   # Focused investigation view on TXN_0000255
+|-- fine_tune_actual.py               # Live PyTorch / Hugging Face PEFT LoRA training
 |-- fine_tune_slm.py               # Configurable fine-tuning entrypoint
 |-- evaluate_base_vs_lora.py       # Comparative evaluation on held-out test split
 |-- test_adversarial_firewall.py   # Controlled prompt-injection test suite
