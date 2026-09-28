@@ -1,4 +1,4 @@
-# Azentio Fraud Sentinel: Relational Data Pipeline, SLM Fraud Detection, and Evidence Brain
+# Fraud Sentinel: Relational Data Pipeline, SLM Fraud Detection, and Evidence Brain
 
 An end-to-end financial transaction processing, adversarial sanitization, fraud classification, and graph investigation system built for the Azentio AI Engineering Hackathon.
 
